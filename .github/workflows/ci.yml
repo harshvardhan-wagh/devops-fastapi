@@ -6,5 +6,14 @@ jobs:
   hello:
     runs-on: ubuntu-latest
     steps:
-      - name: Say something
-        run: echo "Pipelin is alive"
+      - name: Before checkout
+        run: |
+          pwd
+          ls -la
+
+      - uses: actions/checkout@v4
+
+      - name: After checkout
+        run: |
+          pwd
+          ls -la

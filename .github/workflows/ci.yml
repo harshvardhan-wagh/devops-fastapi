@@ -1,19 +1,12 @@
 name: CI
 
-on: push
+on:
+  push:
+    branches: [main]
 
 jobs:
   hello:
     runs-on: ubuntu-latest
     steps:
-      - name: Before checkout
-        run: |
-          pwd
-          ls -la
-
       - uses: actions/checkout@v4
-
-      - name: After checkout
-        run: |
-          pwd
-          ls -la
+      - run: echo "ref is ${{ github.ref }} and sha is ${{ github.sha }}"

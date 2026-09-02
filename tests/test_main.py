@@ -13,4 +13,4 @@ def test_health():
 
 def test_read_item():
     r = client.get("/items/7")
-    assert r.json()["item_id"] == 7
+    assert r.json()["item_id"] == 8

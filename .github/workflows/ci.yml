@@ -3,10 +3,12 @@ name: CI
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
   hello:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: echo "ref is ${{ github.ref }} and sha is ${{ github.sha }}"
+      - run: echo "event was ${{ github.event_name }}"

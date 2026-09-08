@@ -30,3 +30,9 @@ jobs:
 
       - name: Test
         run: pytest -v
+
+      - name: Build image
+        run: docker build -t devops-fastapi:ci .
+
+      - name: Inspect image
+        run: docker images devops-fastapi

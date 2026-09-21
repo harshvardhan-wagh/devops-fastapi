@@ -14,3 +14,9 @@ def test_health():
 def test_read_item():
     r = client.get("/items/7")
     assert r.json()["item_id"] == 7
+
+
+def test_version():
+    r = client.get("/version")
+    assert r.status_code == 200
+    assert "commit" in r.json()

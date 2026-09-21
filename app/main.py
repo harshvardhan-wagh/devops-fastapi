@@ -1,3 +1,5 @@
+import os
+
 from fastapi import FastAPI
 
 app = FastAPI(title="devops-demo")
@@ -6,6 +8,11 @@ app = FastAPI(title="devops-demo")
 @app.get("/health")
 def health():
     return {"status": "ok"}
+
+
+@app.get("/version")
+def version():
+    return {"commit": os.getenv("GIT_SHA", "unknown")}
 
 
 @app.get("/items/{item_id}")

@@ -1,0 +1,15 @@
+name: Runner Test
+on: workflow_dispatch
+
+jobs:
+  check:
+    runs-on: [self-hosted, k8s]
+    steps:
+      - name: Where am I
+        run: |
+          hostname
+          whoami
+      - name: Can I reach the cluster
+        run: |
+          kubectl get nodes
+          kubectl get pods -n devops-demo

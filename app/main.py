@@ -7,7 +7,7 @@ app = FastAPI(title="devops-demo")
 
 @app.get("/health")
 def health():
-    return {"status": "ok"}
+    return {"status": "ok", "service": "devops-demo"}
 
 
 @app.get("/version")
